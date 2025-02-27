@@ -26,6 +26,7 @@ class LoginActivity : AppCompatActivity() {
         val loginButton: Button = findViewById(R.id.login)
 
         loginButton.setOnClickListener {
+            //menampilkan
             val email = emailInput.text.toString().trim()
             Log.d("LoginActivity", "Email yang terinput: $email")
             val password = passwordInput.text.toString()
