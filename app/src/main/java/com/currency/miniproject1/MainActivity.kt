@@ -20,9 +20,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         val backButton: Button = findViewById(R.id.back)
+        val kabaddiButton: Button = findViewById(R.id.btnKabaddi)
 
         backButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+
+        }
+
+        kabaddiButton.setOnClickListener {
+            val intent = Intent(this, KabaddiActivity::class.java)
             startActivity(intent)
         }
 
