@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MiniProject1</string>
+    <string name="kembali">Navigation</string>
+    <string name="selamat_datang">Selamat Datang</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
 </resources>
