@@ -8,6 +8,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.databinding.DataBindingUtil
+import com.currency.miniproject1.databinding.ActivityKabaddiBinding
 
 class KabaddiActivity : AppCompatActivity() {
 
@@ -22,11 +24,16 @@ class KabaddiActivity : AppCompatActivity() {
     //Menggunakan ViewModel (Deklarasi + Inisialisasi)
     val viewModel: ScoreViewModel by viewModels()
 
+    private lateinit var binding:ActivityKabaddiBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContentView(R.layout.activity_kabaddi)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        binding  = DataBindingUtil.setContentView(this, R.layout.activity_kabaddi)
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.kabaddi)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -39,32 +46,33 @@ class KabaddiActivity : AppCompatActivity() {
         val buttonPlus2B = findViewById<Button>(R.id.tambah2b)
         val buttonReset = findViewById<Button>(R.id.btnreset)
 
+
         // Inisialisasi
         skorA = findViewById(R.id.skorA)
         skorB = findViewById(R.id.skorB)
 
-        skorA.text = viewModel.scoreA.toString()
-        skorB.text = viewModel.scoreB.toString()
+        binding.skorA.text = viewModel.scoreA.toString()
+        binding.skorB.text = viewModel.scoreB.toString()
 
-        buttonPlus1A.setOnClickListener {
+        binding.tambah1a.setOnClickListener {
             incrementSkorA()
         }
 
-        buttonPlus2A.setOnClickListener {
+        binding.tambah2a.setOnClickListener {
             incrementSkorA()
             incrementSkorA()
         }
 
-        buttonPlus1B.setOnClickListener {
+        binding.tambah1b.setOnClickListener {
             incrementSkorB()
         }
 
-        buttonPlus2B.setOnClickListener {
+        binding.tambah2b.setOnClickListener {
             incrementSkorB()
             incrementSkorB()
         }
 
-        buttonReset.setOnClickListener {
+        binding.btnreset.setOnClickListener {
             resetSkor()
         }
 
@@ -82,13 +90,13 @@ class KabaddiActivity : AppCompatActivity() {
     fun incrementSkorA() {
 //        scoreA++
         viewModel.incrementSkorA()
-        skorA.text = viewModel.scoreA.toString()
+        binding.skorA.text = viewModel.scoreA.toString()
     }
 
     fun incrementSkorB() {
 //        scoreB++
         viewModel.incrementSkorB()
-        skorB.text = viewModel.scoreB.toString()
+        binding.skorB.text = viewModel.scoreB.toString()
 
     }
 }
