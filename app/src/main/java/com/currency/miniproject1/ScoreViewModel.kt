@@ -1,20 +1,26 @@
 package com.currency.miniproject1
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ScoreViewModel:ViewModel() {
-    var scoreA : Int = 0
-    var scoreB : Int = 0
+class ScoreViewModel : ViewModel() {
+    private val _scoreA = MutableLiveData(0)
+    val scoreA: LiveData<Int>
+        get() = _scoreA
+
+    private val _scoreB = MutableLiveData(0)
+    val scoreB: LiveData<Int>
+        get() = _scoreB
 
     fun incrementSkorA() {
-        scoreA++
+        _scoreA.value = _scoreA.value ?.plus(1)
     }
     fun incrementSkorB() {
-        scoreB++
+        _scoreB.value = _scoreB.value ?.plus(1)
     }
     fun resetSkor() {
-        scoreA = 0
-        scoreB = 0
+        _scoreA.value = 0
+        _scoreB.value = 0
     }
-
 }
