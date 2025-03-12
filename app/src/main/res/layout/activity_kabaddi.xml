@@ -36,6 +36,7 @@
             tools:layout_editor_absoluteY="32dp" />
     </androidx.appcompat.widget.Toolbar>
 
+<!--  View Garis  -->
     <View
         android:id="@+id/line"
         android:layout_width="2dp"
@@ -48,6 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/header"
         app:layout_constraintVertical_bias="0.757" />
 
+<!--  Team A & B  -->
     <TextView
         android:id="@+id/teamA"
         android:layout_width="wrap_content"
@@ -75,6 +77,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.36" />
 
+<!--  View Score A & B  -->
     <TextView
         android:id="@+id/skorA"
         android:layout_width="wrap_content"
@@ -101,6 +104,7 @@
         app:layout_constraintTop_toBottomOf="@+id/teamB"
         app:layout_constraintVertical_bias="0.105" />
 
+<!--  Button Plus  -->
     <Button
         android:id="@+id/tambah1a"
         android:layout_width="wrap_content"
@@ -143,6 +147,7 @@
         app:layout_constraintStart_toStartOf="@+id/tambah1b"
         app:layout_constraintTop_toBottomOf="@+id/tambah1b" />
 
+<!--  Button Reset  -->
     <Button
         android:id="@+id/btnreset"
         android:layout_width="wrap_content"
